@@ -1,20 +1,21 @@
 
->> We have used Android application and Google cloud vision to get lable for image and Alpha Vantage API to fetch stock information form image lable. The application workflow is as below.
-	
-	1. Android application will capture image of product using intent, the image would be saved to google storage and get the image file location.
-	2. With the image path from google storage mobile app calls the hosted API/Google Cloud Functions to fetch the stocks information for the image product company.
-	3. Our hosted API/Google Cloud Function first calls cloud vision SDK client with the image bite data to get the lables for the image product and and scores of lable probability.
-	4. With the highest score lable we call Alpha Vantage API to fetch stock information of image lable company.
-	
-	We can improve to add authenticate the user of the Android application, eliminate PII/adult imagery search by using SafeSearch.
-	
-	SafeSearchAnnotation safeSearch = responses.getResponses(0).getSafeSearchAnnotation();
-                System.out.println("SafeSearch Annotation:");
-                System.out.println("Adult: " + safeSearch.getAdult());
-                System.out.println("Spoof: " + safeSearch.getSpoof());
-                System.out.println("Medical: " + safeSearch.getMedical());
-                System.out.println("Violence: " + safeSearch.getViolence());
+>> We have used Android application for product image capturing, Google cloud vision to get lable for image and Alpha Vantage API to fetch stock information form image lable. 
 
+	The application workflow is as below.
+	
+		1. Android application will capture image of product using intent, the image would be saved to google storage and get the image file location.
+		2. With the image path from google storage mobile app calls the hosted API/Google Cloud Functions to fetch the stocks information for the image product company.
+		3. Our hosted API/Google Cloud Function calls cloud vision SDK client with the image bite data from google storage to get the lables for the image product and and scores of lable probability.
+		4. With the highest score lable we call Alpha Vantage API to fetch stock information of image lable company.
+	
+	We can improve to add authenticate the user of the Android application, eliminate PII/adult imagery search by using SafeSearch in cloud vision.
+	
+			SafeSearchAnnotation safeSearch = responses.getResponses(0).getSafeSearchAnnotation();
+					System.out.println("SafeSearch Annotation:");
+					System.out.println("Adult: " + safeSearch.getAdult());
+					System.out.println("Spoof: " + safeSearch.getSpoof());
+					System.out.println("Medical: " + safeSearch.getMedical());
+					System.out.println("Violence: " + safeSearch.getViolence());
 
 
 >> Main dependencies :
