@@ -1,13 +1,12 @@
 {
   "type": "service_account",
-  "project_id": "cloudvisioinapi",
-  "private_key_id": "faf7da71a2dca43c428edb9a317e86be8fec650f",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDCmQCekVcAfvjb\njXAZ/SS8w4CMd+8ApPmtmPWCec/Dqq2cVjc3OrdBsLqBOW1LMFcVpOn1NXtuMl66\nuFLh6aMCr9tbkfdMPXRsV2DniU3DnsHBNVPH7NyOcum5owBDhNXuYJdzfWjW13DG\nY84T3Mc+JVONceBXzeFr2+uM3nGxQ19pDTmIVIK2ulA1kMzzT1KMEy/noxcw+PhQ\nV7RRuLL+vZ215hlb9Kfu8oRLU1N1973cZQ/j73xWIM5LjD/1w3wUK/nxVVLHbLNQ\nlczzJCyEY3QV2ZHC6A0jeh/YtTFJ9MjkX3/442Qs8tmfSvyn1IDuz1ZYSouWOiNr\nxTlZdnDvAgMBAAECggEAP40uSZrXmf7dkP44/RPSGp+SbM2CTWiTbeFFVK4pbxJf\njm4NrEjNrnNkBW3WxrZrylLIYV9tBwkGLN6jmsnthaQe9GHQLKLpUbSbniIWNmuz\nhUDAMsulIBRhRlH4dRR9tVLwQzRSt882MmRH2e7BVwdjqQ7moGZJVytEWwYOhUAT\nuQ4bG1tLm4YOfBfNDquiHILB9+xtrn5dIn4RoBQvHRMKsN4oQMIC4vYASxExv3Fu\nov2wB7HidbGeRJej8x6nrHzWAIpyKiQ1Hzx1ocUhOKLP9pEIc4WPXWfYB077dX1A\ne3Xo7HIT/lOzCB8qi09FEt5AywMy0/WY72fG/IWOIQKBgQD6b2W3jiKL3Sm/rJKB\ndFYCp7lJRL+rmzkChhYdRbXhSj1IDDbSqzF4mT2TR2Uem49kjqIBuBBh1lsqnnJ0\nRtICN50heYd3PnMyXb54MCS8Ci+NQ/j8ERA9Z6olnz+RkXcPAKmgWiF4bwfU0XB1\nJhwkqV/x0dtkgnIhybC0O8P0vwKBgQDG6/kacynOrNvVrfYQYR+BhzaAtX6tj/vv\nzKJOBgt28T/Co9l8Hvq2OwkGGgdKb130LlAQCF9Yy/ZYQoq2XzFEJK0mE/kHMopY\n+EbCw4PVyhDG84wg2oWkIuzYkIXkwOpCkhKEs2btwifoWebjk4tPmlqYvlDYdMR3\nmpWGp8ef0QKBgQCAYDhZJrBI2B99lP4pBDTO+aF+kJJcap6Hz6poaQK6MS9GzpQP\n3BfpBUzOQavxS7buyjr7/JnRPWvQZhavyln/LvkKXtz1YHr21506yRsblXEYzj5F\nII4dnBVZYc/ZVCMe+qz5eRptPSVbj91BAD8u//Ah6vy3AjN1ZImDapuhywKBgFu9\nnsAdFs3zmNt+hHpfYJlrU66ehdLkEcwxczVKwmTTtJU+3eHJo9UBexLuVCh3Hjys\nU05hnh+kyXNBFRow4tbLl3N1SKeSHo4TywauBxJFQ+GNlzXbskDVvqfOV4H9msyi\n85lx5+mFXsRhGgQhGuHWjSvesghyKd4DVCyrGnzRAoGBANoOc/cM+zApCvCd9i/j\nIgpVRrG00qee2nJPQtRXDnnxLpiHMuIaQi7TxXwrp+554QMvDgWQvqQ5RrXWbuNT\ny8yMHW1vZ9vvhzk6rjTWv8otvYCMYA05zqiK/wsOTn7RF2pS5veDG1aTFBu8roLm\naw8FYD4EHh/RCs6pmufFPrJZ\n-----END PRIVATE KEY-----\n",
-  "client_email": "vidysagar-t@cloudvisioinapi.iam.gserviceaccount.com",
-  "client_id": "114449965931643733234",
+  "project_id": "your-project-id",
+  "private_key_id": "your-private-key-id",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR-PRIVATE-KEY\n-----END PRIVATE KEY-----",
+  "client_email": "your-service-account-email",
+  "client_id": "your-client-id",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vidysagar-t%40cloudvisioinapi.iam.gserviceaccount.com",
-  "universe_domain": "googleapis.com"
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email"
 }

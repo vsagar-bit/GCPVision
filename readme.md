@@ -8,7 +8,7 @@
 		3. Our hosted API/Google Cloud Function calls cloud vision SDK client with the image bite data from google storage to get the lables for the image product and and scores of lable probability.
 		4. With the highest score lable we call Alpha Vantage API to fetch stock information of image lable company.
 	
-	We can improve to add authenticate the user of the Android application, eliminate PII/adult imagery search by using SafeSearch in cloud vision.
+	We can improve to add user authentication of the Android application, eliminate PII/adult imagery search by using SafeSearch in cloud vision.
 	
 			SafeSearchAnnotation safeSearch = responses.getResponses(0).getSafeSearchAnnotation();
 					System.out.println("SafeSearch Annotation:");

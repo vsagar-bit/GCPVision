@@ -33,11 +33,11 @@ public class GCPVisionController {
         try {
             // Load the credentials file to authenticate with the Vision API
             GoogleCredentials credentials = ServiceAccountCredentials.fromStream(
-                    new FileInputStream("C:\\Users\\vidyasagar-pc\\Downloads\\GCPVision\\GCPVision\\src\\main\\resources\\cloudvisioinapi-creds.json")
+                    new FileInputStream("resources\\cloudvisioinapi-creds.json")
             );
 
             // Create an image byte stream
-            ByteString imageBytes = ByteString.readFrom(new FileInputStream("C:\\Users\\vidyasagar-pc\\Downloads\\GCPVision\\GCPVision\\src\\main\\resources\\R.png"));
+            ByteString imageBytes = ByteString.readFrom(new FileInputStream("resources\\R.png"));
 
             // Set up the image for processing
             Image image = Image.newBuilder()
