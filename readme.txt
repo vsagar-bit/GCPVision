@@ -8,9 +8,11 @@
       Find the newly created service account in the list and click on the "Edit" icon (pencil).
       Click "Add Key" and choose "JSON" to download the credentials.json file.
 
+>> To activate service account insall google cloud sdk shell(CLI) 
+      run the command "gcloud auth activate-service-account --key-file=<your-creds.json path>"
+
 >> For using the Alpha Vantage API:
 
       Sign Up and Obtain API Key:
-      
       Go to the Alpha Vantage website (https://www.alphavantage.co/) and sign up for a free or premium account.
       Obtain an API key, which you'll use to authenticate your requests to their API.
