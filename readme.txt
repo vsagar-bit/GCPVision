@@ -1,3 +1,17 @@
+
+
+
+
+>> Main dependencies :
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-vision</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+
 >> To generate a GCP service account and obtain the credentials:
 
       Go to the Google Cloud Console: https://console.cloud.google.com/
@@ -7,11 +21,27 @@
       On the "Role" step, add the appropriate roles (e.g., "Project" > "Editor" for full access). Click "Continue" and then "Done".
       Find the newly created service account in the list and click on the "Edit" icon (pencil).
       Click "Add Key" and choose "JSON" to download the credentials.json file.
+	  
+	  **sample credentials json file :
+	  
+			{
+			  "type": "service_account",
+			  "project_id": "your-project-id",
+			  "private_key_id": "your-private-key-id",
+			  "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR-PRIVATE-KEY\n-----END PRIVATE KEY-----",
+			  "client_email": "your-service-account-email",
+			  "client_id": "your-client-id",
+			  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+			  "token_uri": "https://accounts.google.com/o/oauth2/token",
+			  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+			  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email"
+			}
 
 >> To activate service account insall google cloud sdk shell(CLI) 
       run the command "gcloud auth activate-service-account --key-file=<your-creds.json path>"
 
->> For using the Alpha Vantage API:
+	  
+>> For fetching stocks information by company name and stock name, we are using the Alpha Vantage API:
 
       Sign Up and Obtain API Key:
       Go to the Alpha Vantage website (https://www.alphavantage.co/) and sign up for a free or premium account.
