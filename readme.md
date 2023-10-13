@@ -17,6 +17,8 @@
 					System.out.println("Medical: " + safeSearch.getMedical());
 					System.out.println("Violence: " + safeSearch.getViolence());
 
+![Capture](https://github.com/vsagar-bit/GCPVision/assets/60217170/3464aed8-ed2e-4c1c-bd2f-a96294df81fc)
+
 
 >> Main dependencies :
 		<dependency>
