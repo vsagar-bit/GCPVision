@@ -6,7 +6,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StockInfoRetriever {
 
     private static final String API_KEY = "EY72HD9AVSQZ2YRH";
@@ -14,7 +16,7 @@ public class StockInfoRetriever {
     private static final String SYMBOL_FUNCTION = "SYMBOL_SEARCH";
     private static final String OPTIONS_FUNCTION = "GLOBAL_QUOTE";
 
-    public String getStockSymbolByCompanyName(String companyName) throws Exception {
+    private String getStockSymbolByCompanyName(String companyName) throws Exception {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         // Construct the API request
@@ -38,9 +40,9 @@ public class StockInfoRetriever {
         }
     }
 
-    public void getOptionDataForStock(String symbol) throws Exception {
+    private String getOptionDataForStock(String symbol) throws Exception {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-
+        String responseBody = "";
         // Construct the API request
         String apiUrl = String.format("%s?function=%s&symbol=%s&apikey=%s", BASE_URL, OPTIONS_FUNCTION, symbol, API_KEY);
         HttpGet httpGet = new HttpGet(apiUrl);
@@ -48,7 +50,7 @@ public class StockInfoRetriever {
         try {
             // Send the HTTP request
             CloseableHttpResponse response = httpClient.execute(httpGet);
-            String responseBody = EntityUtils.toString(response.getEntity());
+            responseBody = EntityUtils.toString(response.getEntity());
 
             // Parse the JSON response
             JSONObject jsonResponse = new JSONObject(responseBody);
@@ -71,17 +73,12 @@ public class StockInfoRetriever {
             // Close the HttpClient
             httpClient.close();
         }
+        return responseBody;
     }
 
-    public static void main(String[] args) {
+    public String getCompanyStockOptions(String companyName) {
         try {
-            StockInfoRetriever retriever = new StockInfoRetriever();
-            String companyName = "Apple";  // Replace with the company name you want to search for
-            String stockSymbol = retriever.getStockSymbolByCompanyName(companyName);
-
-            System.out.println("Company Name: " + companyName);
-            System.out.println("Stock Symbol: " + stockSymbol);
-            retriever.getOptionDataForStock(stockSymbol);
+            return getOptionDataForStock(getStockSymbolByCompanyName(companyName));
         } catch (Exception e) {
             e.printStackTrace();
         }

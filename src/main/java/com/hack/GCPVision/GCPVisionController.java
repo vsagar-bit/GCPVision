@@ -1,5 +1,7 @@
 package com.hack.GCPVision;
 
+import com.google.protobuf.MapEntry;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -14,22 +16,28 @@ import com.google.protobuf.ByteString;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class GCPVisionController {
 
-    @GetMapping("getImageName")
-    public String getImageName() {
+    @Autowired
+    StockInfoRetriever stockInfoRetriever;
+    @GetMapping("getStocksFromImage")
+    public String getStocksFromImage() {
+
+        Map<String, Float> lableScore = new HashMap<>();
         String result = "";
         try {
             // Load the credentials file to authenticate with the Vision API
             GoogleCredentials credentials = ServiceAccountCredentials.fromStream(
-                    new FileInputStream("path to your cerds file cloudvisioinapi-creds.json")
+                    new FileInputStream("C:\\Users\\vidyasagar-pc\\Downloads\\GCPVision\\GCPVision\\src\\main\\resources\\cloudvisioinapi-creds.json")
             );
 
             // Create an image byte stream
-            ByteString imageBytes = ByteString.readFrom(new FileInputStream("image file path R.png"));
+            ByteString imageBytes = ByteString.readFrom(new FileInputStream("C:\\Users\\vidyasagar-pc\\Downloads\\GCPVision\\GCPVision\\src\\main\\resources\\R.png"));
 
             // Set up the image for processing
             Image image = Image.newBuilder()
@@ -62,6 +70,7 @@ public class GCPVisionController {
                     System.out.println("Labels:");
                     for (com.google.cloud.vision.v1.EntityAnnotation annotation : res.getLabelAnnotationsList()) {
                         System.out.println(annotation.getDescription() + " (score: " + annotation.getScore() + ")");
+                        lableScore.put(annotation.getDescription(), annotation.getScore());
                         result += annotation.getDescription();
                     }
                 }
@@ -69,6 +78,16 @@ public class GCPVisionController {
         } catch (IOException e) {
             System.err.println("Error reading image or credentials: " + e.getMessage());
         }
+        Float maxScore = Float.parseFloat("0.0");
+        String imageCompany = "";
+        for (Map.Entry<String, Float> score : lableScore.entrySet()) {
+            if (score.getValue().floatValue() > maxScore) {
+                maxScore = score.getValue().floatValue();
+                imageCompany = score.getKey();
+            }
+        }
+        result = !imageCompany.isEmpty() ? stockInfoRetriever.getCompanyStockOptions(imageCompany) : "";
+
         return result;
     }
 }
