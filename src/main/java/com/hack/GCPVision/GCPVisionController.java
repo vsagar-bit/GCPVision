@@ -37,7 +37,7 @@ public class GCPVisionController {
             );
 
             // Create an image byte stream
-            ByteString imageBytes = ByteString.readFrom(new FileInputStream("resources\\R.png"));
+            ByteString imageBytes = ByteString.readFrom(new FileInputStream("resources\\nike.png"));
 
             // Set up the image for processing
             Image image = Image.newBuilder()
